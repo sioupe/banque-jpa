@@ -3,6 +3,8 @@ package fr.diginamic.entite;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.Set;
+
 @Entity
 @Table(name = "client")
 public class Client {
@@ -21,4 +23,11 @@ public class Client {
     @Embedded
     private Adresse adresse;
 
+    @OneToMany
+    @JoinColumn(name = "BANQUE_ID")
+    private Set<Banque> banques;
+
+    @OneToMany
+    @JoinColumn(name = "COMPTE_ID")
+    private Set<Compte> comptes;
 }
