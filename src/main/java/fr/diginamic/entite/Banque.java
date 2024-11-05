@@ -12,9 +12,10 @@ public class Banque {
     @Column (name = "NOM")
     private String nom;
 
-    @ManyToOne()
+    @ManyToOne
+    @JoinColumn(name = "CLIENT_ID")
     private Client client;
-    
+
     public Banque(){
 
     }
