@@ -2,6 +2,7 @@ package fr.diginamic.entite;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -16,8 +17,7 @@ public abstract class  Compte {
     private String numero;
     @Column(name = "SOLDE")
     private double solde;
-    @Column(name = "taux")
-    private double taux;
+
 
     @ManyToMany(mappedBy = "comptes")
     private Set<Client> clients;
@@ -25,4 +25,18 @@ public abstract class  Compte {
     @ManyToOne
     @JoinColumn(name = "OERATION_ID")
     private Set<Operation> operations;
+
+    public Compte(){
+        operations=new HashSet<Operation>();
+        clients=new HashSet<Client>();
+    }
+
+    public Compte(String numero, double solde) {
+        operations=new HashSet<Operation>();
+        clients=new HashSet<Client>();
+
+        this.numero = numero;
+        this.solde = solde;
+
+    }
 }

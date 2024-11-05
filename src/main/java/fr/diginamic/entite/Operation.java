@@ -22,4 +22,13 @@ public abstract class Operation {
 
     @OneToMany(mappedBy = "operations")
     private Compte compte;
+
+    public Operation(){
+
+    }
+    public Operation(LocalDateTime date, String motif, double montant) {
+        this.date = date;
+        this.motif = motif;
+        this.montant = montant;
+    }
 }

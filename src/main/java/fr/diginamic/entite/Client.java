@@ -3,6 +3,7 @@ package fr.diginamic.entite;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -33,4 +34,19 @@ public class Client {
             inverseJoinColumns = @JoinColumn(name = "ID_COMPTES",referencedColumnName = "ID")
     )
     private Set<Compte>comptes;
+
+    public Client(){
+        banques=new HashSet<Banque>();
+        comptes=new HashSet<Compte>();
+
+    }
+    public Client(String nom, String prenom, LocalDate dateNaissance, Adresse adresse) {
+        banques=new HashSet<Banque>();
+        comptes=new HashSet<Compte>();
+
+        this.nom = nom;
+        this.prenom = prenom;
+        this.dateNaissance = dateNaissance;
+        this.adresse = adresse;
+    }
 }

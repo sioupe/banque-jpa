@@ -9,4 +9,13 @@ import jakarta.persistence.Table;
 public class LivretA extends Compte{
     @Column  (name = "TAUX")
     private double taux;
+
+    public LivretA() {
+        super();
+    }
+
+    public LivretA(String numero, double solde, double taux) {
+        super(numero, solde);
+        this.taux = taux;
+    }
 }
