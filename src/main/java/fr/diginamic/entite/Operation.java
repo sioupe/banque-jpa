@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Table
@@ -18,4 +19,7 @@ public abstract class Operation {
     private double montant;
     @Column(name = "MOTIF")
     private String motif;
+
+    @OneToMany(mappedBy = "operations")
+    private Compte compte;
 }
