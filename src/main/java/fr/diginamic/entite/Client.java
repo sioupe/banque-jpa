@@ -18,5 +18,7 @@ public class Client {
     @Column (name = "DATE_NAISSANCE")
     private LocalDate dateNaissance;
 
+    @Embedded
+    private Adresse adresse;
 
 }
