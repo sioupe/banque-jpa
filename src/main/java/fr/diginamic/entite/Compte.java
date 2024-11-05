@@ -14,4 +14,6 @@ public abstract class  Compte {
     private String numero;
     @Column(name = "SOLDE")
     private double solde;
+    @Column(name = "taux")
+    private double taux;
 }
