@@ -27,7 +27,10 @@ public class Client {
     @JoinColumn(name = "BANQUE_ID")
     private Set<Banque> banques;
 
-    @OneToMany
-    @JoinColumn(name = "COMPTE_ID")
-    private Set<Compte> comptes;
+    @ManyToMany
+    @JoinTable(name = "possede",
+            joinColumns = @JoinColumn(name = "ID_CLIENT",referencedColumnName = "ID"),
+            inverseJoinColumns = @JoinColumn(name = "ID_COMPTES",referencedColumnName = "ID")
+    )
+    private Set<Compte>comptes;
 }
