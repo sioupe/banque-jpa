@@ -2,6 +2,8 @@ package fr.diginamic.entite;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "compte")
 public abstract class  Compte {
@@ -17,6 +19,6 @@ public abstract class  Compte {
     @Column(name = "taux")
     private double taux;
 
-    @OneToMany(mappedBy = "comptes")
-    private Client client;
+    @ManyToMany(mappedBy = "comptes")
+    private Set<Client> clients;
 }
