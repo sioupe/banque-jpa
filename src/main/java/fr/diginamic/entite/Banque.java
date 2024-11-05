@@ -12,8 +12,9 @@ public class Banque {
     @Column (name = "NOM")
     private String nom;
 
-    @OneToMany(mappedBy = "banques")
+    @ManyToOne()
     private Client client;
+    
     public Banque(){
 
     }

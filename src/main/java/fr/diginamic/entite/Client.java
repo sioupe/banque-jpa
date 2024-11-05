@@ -24,8 +24,7 @@ public class Client {
     @Embedded
     private Adresse adresse;
 
-    @OneToMany
-    @JoinColumn(name = "BANQUE_ID")
+    @OneToMany(mappedBy = "client")
     private Set<Banque> banques;
 
     @ManyToMany
