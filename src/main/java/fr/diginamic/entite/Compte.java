@@ -1,4 +1,17 @@
 package fr.diginamic.entite;
 
-public class Compte {
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "compte")
+public abstract class  Compte {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
+    private Integer id;
+
+    @Column(name = "NUMERO")
+    private String numero;
+    @Column(name = "SOLDE")
+    private double solde;
 }
