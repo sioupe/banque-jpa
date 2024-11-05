@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
-@Table
+@Table(name = "operation")
 public abstract class Operation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +22,7 @@ public abstract class Operation {
 
     @ManyToOne
     @JoinColumn(name = "COMPTE_ID")
-    private Compte comptes;
+    private Compte compte;
 
     public Operation(){
 

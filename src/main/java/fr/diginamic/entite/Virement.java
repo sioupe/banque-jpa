@@ -7,7 +7,6 @@ import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 
 @Entity
-@Table (name = "virement")
 public class Virement extends Operation{
     @Column (name = "BENEFICIAIRE")
     private String beneficiaire;

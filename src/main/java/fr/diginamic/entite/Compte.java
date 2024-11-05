@@ -22,7 +22,7 @@ public abstract class  Compte {
     @ManyToMany(mappedBy = "comptes")
     private Set<Client> clients;
 
-    @OneToMany(mappedBy = "operations")
+    @OneToMany(mappedBy = "compte")
     private Set<Operation> operations;
 
     public Compte(){
