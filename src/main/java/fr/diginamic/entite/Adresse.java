@@ -9,4 +9,10 @@ public class Adresse {
     private Integer codePostal;
     private String ville;
 
+    public Adresse(Integer numero, String rue, Integer codePostal, String ville) {
+        this.numero = numero;
+        this.rue = rue;
+        this.codePostal = codePostal;
+        this.ville = ville;
+    }
 }

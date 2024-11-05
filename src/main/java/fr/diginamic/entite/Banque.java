@@ -28,8 +28,19 @@ public class Banque {
         return sb.toString();
     }
 
-    public Banque(String nom, Client client) {
+
+    public Banque(String nom) {
         this.nom = nom;
+    }
+
+    /**
+     * Setter
+     *
+     * @param client client
+     */
+
+
+    public void setClient(Client client) {
         this.client = client;
     }
 }

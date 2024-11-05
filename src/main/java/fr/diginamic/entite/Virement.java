@@ -26,7 +26,7 @@ public class Virement extends Operation{
         final StringBuilder sb = new StringBuilder("Virement{ ");
         sb.append(super.toString());
         sb.append("beneficiaire= ").append(beneficiaire);
-        
+
         sb.append('}');
         return sb.toString();
     }
