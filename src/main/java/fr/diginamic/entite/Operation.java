@@ -20,8 +20,9 @@ public abstract class Operation {
     @Column(name = "MOTIF")
     private String motif;
 
-    @OneToMany(mappedBy = "operations")
-    private Compte compte;
+    @ManyToOne
+    @JoinColumn(name = "COMPTE_ID")
+    private Compte comptes;
 
     public Operation(){
 

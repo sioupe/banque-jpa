@@ -22,8 +22,7 @@ public abstract class  Compte {
     @ManyToMany(mappedBy = "comptes")
     private Set<Client> clients;
 
-    @ManyToOne
-    @JoinColumn(name = "OERATION_ID")
+    @OneToMany(mappedBy = "operations")
     private Set<Operation> operations;
 
     public Compte(){
