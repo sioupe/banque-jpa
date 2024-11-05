@@ -16,4 +16,7 @@ public abstract class  Compte {
     private double solde;
     @Column(name = "taux")
     private double taux;
+
+    @OneToMany(mappedBy = "comptes")
+    private Client client;
 }

@@ -11,4 +11,7 @@ public class Banque {
     private Integer id;
     @Column (name = "NOM")
     private String nom;
+
+    @OneToMany(mappedBy = "banques")
+    private Client client;
 }
