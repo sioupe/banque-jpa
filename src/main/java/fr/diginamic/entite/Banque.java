@@ -1,10 +1,14 @@
 package fr.diginamic.entite;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name="banque")
 public class Banque {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
+    private Integer id;
+    @Column (name = "NOM")
     private String nom;
 }
