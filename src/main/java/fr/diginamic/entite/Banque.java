@@ -14,4 +14,12 @@ public class Banque {
 
     @OneToMany(mappedBy = "banques")
     private Client client;
+    public Banque(){
+
+    }
+
+    public Banque(String nom, Client client) {
+        this.nom = nom;
+        this.client = client;
+    }
 }
