@@ -22,4 +22,15 @@ public class AssuranceVie extends Compte{
         this.dateFin = dateFin;
         this.taux = taux;
     }
+
+    @Override
+    public String toString() {
+
+        final StringBuilder sb = new StringBuilder("AssuranceVie{ ");
+        sb.append(super.toString());
+        sb.append("taux= ").append(taux);
+        sb.append("dateFin ").append(dateFin);
+        sb.append('}');
+        return sb.toString();
+    }
 }

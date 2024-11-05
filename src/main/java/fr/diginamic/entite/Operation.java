@@ -31,4 +31,16 @@ public abstract class Operation {
         this.motif = motif;
         this.montant = montant;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder(" ");
+        sb.append("id= ").append(id);
+        sb.append(", date= ").append(date);
+        sb.append(", montant= ").append(montant);
+        sb.append(", motif= '").append(motif).append('\'');
+        sb.append(", compte= ").append(compte);
+        sb.append('}');
+        return sb.toString();
+    }
 }

@@ -31,6 +31,8 @@ public abstract class  Compte {
         clients=new HashSet<Client>();
     }
 
+
+
     public Compte(String numero, double solde) {
         operations=new HashSet<Operation>();
         clients=new HashSet<Client>();
@@ -38,5 +40,14 @@ public abstract class  Compte {
         this.numero = numero;
         this.solde = solde;
 
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder( " ");
+        sb.append("id= ").append(id);
+        sb.append(", numero= '").append(numero).append('\'');
+        sb.append(", solde= ").append(solde);
+        return sb.toString();
     }
 }

@@ -49,4 +49,16 @@ public class Client {
         this.dateNaissance = dateNaissance;
         this.adresse = adresse;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Client{");
+        sb.append("id=").append(id);
+        sb.append(", nom='").append(nom).append('\'');
+        sb.append(", prenom='").append(prenom).append('\'');
+        sb.append(", dateNaissance=").append(dateNaissance);
+        sb.append(", adresse=").append(adresse);
+        sb.append('}');
+        return sb.toString();
+    }
 }

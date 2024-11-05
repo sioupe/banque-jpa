@@ -19,4 +19,15 @@ public class Virement extends Operation{
         super(date, motif, montant);
         this.beneficiaire = beneficiaire;
     }
+
+    @Override
+    public String toString() {
+
+        final StringBuilder sb = new StringBuilder("Virement{ ");
+        sb.append(super.toString());
+        sb.append("beneficiaire= ").append(beneficiaire);
+        
+        sb.append('}');
+        return sb.toString();
+    }
 }

@@ -18,6 +18,16 @@ public class Banque {
 
     }
 
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Banque{");
+        sb.append("id=").append(id);
+        sb.append(", nom='").append(nom).append('\'');
+        sb.append(", client=").append(client);
+        sb.append('}');
+        return sb.toString();
+    }
+
     public Banque(String nom, Client client) {
         this.nom = nom;
         this.client = client;

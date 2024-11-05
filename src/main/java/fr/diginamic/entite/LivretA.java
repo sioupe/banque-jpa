@@ -18,4 +18,14 @@ public class LivretA extends Compte{
         super(numero, solde);
         this.taux = taux;
     }
+
+    @Override
+    public String toString() {
+
+        final StringBuilder sb = new StringBuilder("LivretA{ ");
+        sb.append(super.toString());
+        sb.append(" taux=").append(taux);
+        sb.append('}');
+        return sb.toString();
+    }
 }
