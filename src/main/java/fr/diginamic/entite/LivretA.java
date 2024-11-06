@@ -9,15 +9,28 @@ public class LivretA extends Compte{
     @Column  (name = "TAUX")
     private double taux;
 
+    /**
+     * constructeur vide
+     */
     public LivretA() {
         super();
     }
 
+    /**
+     * constructeur parametre
+     * @param numero
+     * @param solde
+     * @param taux
+     */
     public LivretA(String numero, double solde, double taux) {
         super(numero, solde);
         this.taux = taux;
     }
 
+    /**
+     * affichage de tout sauf des listes
+     * @return
+     */
     @Override
     public String toString() {
 

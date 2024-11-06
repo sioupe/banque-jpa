@@ -12,16 +12,32 @@ public class AssuranceVie extends Compte{
     private LocalDate dateFin;
     @Column(name = "taux")
     private double taux;
+
+    /**
+     * constructeur vide
+     */
     public AssuranceVie() {
         super();
     }
 
+    /**
+     * constructeur parametre
+     * @param numero
+     * @param solde
+     * @param dateFin
+     * @param taux
+     */
     public AssuranceVie(String numero, double solde, LocalDate dateFin, double taux) {
         super(numero, solde);
         this.dateFin = dateFin;
         this.taux = taux;
+
     }
 
+    /**
+     * affichage de tout sauf des listes
+     * @return
+     */
     @Override
     public String toString() {
 

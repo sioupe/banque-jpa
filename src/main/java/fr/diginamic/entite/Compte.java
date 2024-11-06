@@ -25,13 +25,20 @@ public abstract class  Compte {
     @OneToMany(mappedBy = "compte")
     private Set<Operation> operations;
 
+    /**
+     * constructeur vide
+     */
     public Compte(){
         operations=new HashSet<Operation>();
         clients=new HashSet<Client>();
     }
 
 
-
+    /**
+     * constructeur parametre
+     * @param numero
+     * @param solde
+     */
     public Compte(String numero, double solde) {
         operations=new HashSet<Operation>();
         clients=new HashSet<Client>();
@@ -41,6 +48,10 @@ public abstract class  Compte {
 
     }
 
+    /**
+     * rajout d'un client dans la liste des clients variable clients
+     * @param client
+     */
     public void addClient(Client client){
         this.clients.add(client);
         if (!client.getComptes().contains(this)) {
@@ -58,6 +69,10 @@ public abstract class  Compte {
         return clients;
     }
 
+    /**
+     * affichage de tout sauf des listes
+     * @return
+     */
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder( " ");
