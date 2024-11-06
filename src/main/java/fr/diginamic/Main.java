@@ -33,6 +33,9 @@ public class Main {
         assuranceVie.addClient(client1);
         client2.addCompte(assuranceVie);
         client2.addCompte(livretA);
+
+        em.persist(assuranceVie);
+        em.persist(livretA);
         em.persist(banque);
         em.persist(client1);
         em.persist(client2);
