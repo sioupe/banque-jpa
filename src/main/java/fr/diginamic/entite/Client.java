@@ -15,11 +15,11 @@ public class Client implements Serializable {
     @Column(name = "ID")
     private Integer id;
 
-    @Column (name = "NOM")
+    @Column(name = "NOM")
     private String nom;
-    @Column (name = "PRENOM")
+    @Column(name = "PRENOM")
     private String prenom;
-    @Column (name = "DATE_NAISSANCE")
+    @Column(name = "DATE_NAISSANCE")
     private LocalDate dateNaissance;
 
     @Embedded
@@ -31,46 +31,50 @@ public class Client implements Serializable {
 
     @ManyToMany
     @JoinTable(name = "possede",
-            joinColumns = @JoinColumn(name = "ID_CLIENT",referencedColumnName = "ID"),
-            inverseJoinColumns = @JoinColumn(name = "ID_COMPTES",referencedColumnName = "ID")
+            joinColumns = @JoinColumn(name = "ID_CLIENT", referencedColumnName = "ID"),
+            inverseJoinColumns = @JoinColumn(name = "ID_COMPTES", referencedColumnName = "ID")
     )
-    private Set<Compte>comptes;
+    private Set<Compte> comptes;
 
     {
-        comptes=new HashSet<Compte>();
+        comptes = new HashSet<Compte>();
     }
+
     /**
      * constructeur vide
      */
-    public Client(){
+    public Client() {
 
 
     }
 
     /**
      * constructeur paramétré sans compte associer
+     *
      * @param nom
      * @param prenom
      * @param dateNaissance
      * @param adresse
      */
-    public Client(String nom, String prenom, LocalDate dateNaissance, Adresse adresse,Banque banque) {
+    public Client(String nom, String prenom, LocalDate dateNaissance, Adresse adresse, Banque banque) {
 
         this.nom = nom;
         this.prenom = prenom;
         this.dateNaissance = dateNaissance;
         this.adresse = adresse;
-        this.banque=banque;
-        banque.addClient(this);
+        setBanque(banque);
     }
+
+
 
     /**
      * rajoute un compte dans l'entite client variable comptes
+     *
      * @param compte
      */
-    public void addCompte(Compte compte){
+    public void addCompte(Compte compte) {
         comptes.add(compte);
-        if (!compte.getClients().contains(this)){
+        if (!compte.getClients().contains(this)) {
             compte.addClient(this);
         }
     }
@@ -87,11 +91,18 @@ public class Client implements Serializable {
 
     /**
      * setter
+     *
      * @param banque
      */
-    public void setBanque(Banque banque){
-        this.banque=banque;
-        banque.addClient(this);
+
+    public void setBanque(Banque banque) {
+        if (this.banque != null) {
+            this.banque.getClients().remove(this);
+        }
+        this.banque = banque;
+        if (this.banque != null) {
+            this.banque.getClients().add(this);
+        }
     }
 
     /**

@@ -49,14 +49,8 @@ public class Banque implements Serializable {
 
 
     public void addClient(Client client) {
-        this.clients.add(client);
-
-        if (client.getBanque()==null ) {
-            client.setBanque(this);
-        } else if (!client.getBanque().equals(this)) {
             client.setBanque(this);
         }
-    }
 
     /**
      * Getter
