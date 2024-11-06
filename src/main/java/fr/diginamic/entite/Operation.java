@@ -42,8 +42,7 @@ public abstract class Operation implements Serializable {
         this.date = date;
         this.motif = motif;
         this.montant = montant;
-        this.compte = compte;
-        compte.addOperation(this);
+        setCompte(compte);
     }
 
     /**
