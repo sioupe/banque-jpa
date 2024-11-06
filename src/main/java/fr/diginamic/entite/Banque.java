@@ -2,6 +2,10 @@ package fr.diginamic.entite;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+
 @Entity
 @Table(name="banque")
 public class Banque {
@@ -12,28 +16,26 @@ public class Banque {
     @Column (name = "NOM")
     private String nom;
 
-    @ManyToOne
-    @JoinColumn(name = "CLIENT_ID")
-    private Client client;
+    @OneToMany (mappedBy = "banque")
+    private Set<Client> clients;
 
+    /**
+     * constructeur vide
+     */
     public Banque(){
-
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("Banque{");
-        sb.append("id=").append(id);
-        sb.append(", nom='").append(nom).append('\'');
-        sb.append(", client=").append(client);
-        sb.append('}');
-        return sb.toString();
+    this.clients =new HashSet<Client>();
     }
 
 
+    /**
+     * constructeur avec que le nom
+     * @param nom
+     */
     public Banque(String nom) {
+        this.clients =new HashSet<Client>();
         this.nom = nom;
     }
+
 
     /**
      * Setter
@@ -42,7 +44,51 @@ public class Banque {
      */
 
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void addClient(Client client) {
+        this.clients.add(client);
+        System.out.println(client.getBanque()!=null && !client.getBanque().equals(this));
+
+        if (client.getBanque()==null ) {
+            client.setBanque(this);
+        } else if (!client.getBanque().equals(this)) {
+            client.setBanque(this);
+        }
+    }
+
+    /**
+     * Getter
+     *
+     * @return clients
+     */
+
+    public Set<Client> getClients() {
+        return clients;
+    }
+
+    /**
+     * affichage de tout sauf des listes
+     * @return
+     */
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Banque{");
+        sb.append("id=").append(id);
+        sb.append(", nom='").append(nom).append('\'');
+
+        sb.append("} \n");
+
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Banque banque)) return false;
+        return Objects.equals(id, banque.id) && Objects.equals(nom, banque.nom) && Objects.equals(clients, banque.clients);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nom, clients);
     }
 }

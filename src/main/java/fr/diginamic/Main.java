@@ -17,12 +17,32 @@ public class Main {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         System.out.println(em);
-        Banque banque = new Banque("Crédit agricole");
-        Banque banque2 = new Banque("Caisse d'épargne");
+        Banque banque = new Banque("Credit agricole");
 
-        Client client1 = new Client("Jean","Jacques", LocalDate.of(1820, 5, 1),new Adresse(4,"avenue Goldman",34130,"Mauguioi"));
+
+        Client client1 = new Client("Jean","Jacques", LocalDate.of(1820, 5, 1),new Adresse(4,"avenue Goldman",34130,"Mauguio"));
         Client client2 = new Client("franck","bouh", LocalDate.of(1995, 5, 1),new Adresse(4,"avenue Jacquue",34740,"Castelanau-le-lez"));
+
+        Banque banque2 = new Banque("Caisse d'epargne");
+        banque.addClient(client1);
+        banque.addClient(client2);
+        em.persist(banque);
+
+        em.persist(client1);
+        em.persist(client2);
+        em.persist(banque2);
+
         em.getTransaction().commit();
+
+        Client c = em.find(Client.class,1);
+        if (c != null) {
+            System.out.println(c);
+        }
+        Banque b = em.find(Banque.class,1);
+        if (b != null) {
+            System.out.println(b.getClients());
+        }
+
         em.close();
         emf.close();
     }

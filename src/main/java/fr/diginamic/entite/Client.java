@@ -24,8 +24,9 @@ public class Client {
     @Embedded
     private Adresse adresse;
 
-    @OneToMany(mappedBy = "client")
-    private Set<Banque> banques;
+    @ManyToOne
+    @JoinColumn(name = "BANQUE_ID")
+    private Banque banque;
 
     @ManyToMany
     @JoinTable(name = "possede",
@@ -34,13 +35,22 @@ public class Client {
     )
     private Set<Compte>comptes;
 
+    /**
+     * constructeur vide
+     */
     public Client(){
-        banques=new HashSet<Banque>();
         comptes=new HashSet<Compte>();
 
     }
+
+    /**
+     * constructeur paramétré sans compte ou banque associer
+     * @param nom
+     * @param prenom
+     * @param dateNaissance
+     * @param adresse
+     */
     public Client(String nom, String prenom, LocalDate dateNaissance, Adresse adresse) {
-        banques=new HashSet<Banque>();
         comptes=new HashSet<Compte>();
 
         this.nom = nom;
@@ -49,6 +59,37 @@ public class Client {
         this.adresse = adresse;
     }
 
+    /**
+     * rajoute un compte dans l'entite client variable comptes
+     * @param compte
+     */
+    public void addCompte(Compte compte){
+        comptes.add(compte);
+    }
+
+    /**
+     * setter
+     * @param banque
+     */
+    public void setBanque(Banque banque){
+        this.banque=banque;
+        banque.addClient(this);
+    }
+
+    /**
+     * Getter
+     *
+     * @return banques
+     */
+
+    public Banque getBanque() {
+        return banque;
+    }
+
+    /**
+     * affichage de tout sauf les listes
+     * @return
+     */
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Client{");
@@ -57,7 +98,8 @@ public class Client {
         sb.append(", prenom='").append(prenom).append('\'');
         sb.append(", dateNaissance=").append(dateNaissance);
         sb.append(", adresse=").append(adresse);
-        sb.append('}');
+
+        sb.append("}\n");
         return sb.toString();
     }
 
