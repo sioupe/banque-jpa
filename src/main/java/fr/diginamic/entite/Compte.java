@@ -26,13 +26,15 @@ public abstract class  Compte implements Serializable {
 
     @OneToMany(mappedBy = "compte")
     private Set<Operation> operations;
-
+    {
+        operations=new HashSet<Operation>();
+        clients=new HashSet<Client>();
+    }
     /**
      * constructeur vide
      */
     public Compte(){
-        operations=new HashSet<Operation>();
-        clients=new HashSet<Client>();
+
     }
 
 
@@ -42,8 +44,6 @@ public abstract class  Compte implements Serializable {
      * @param solde
      */
     public Compte(String numero, double solde) {
-        operations=new HashSet<Operation>();
-        clients=new HashSet<Client>();
 
         this.numero = numero;
         this.solde = solde;

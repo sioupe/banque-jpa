@@ -24,7 +24,6 @@ public abstract class Operation implements Serializable {
     @ManyToOne
     @JoinColumn(name = "COMPTE_ID")
     private Compte compte;
-
     /**
      * constructeur vide
      */

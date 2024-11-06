@@ -36,11 +36,14 @@ public class Client implements Serializable {
     )
     private Set<Compte>comptes;
 
+    {
+        comptes=new HashSet<Compte>();
+    }
     /**
      * constructeur vide
      */
     public Client(){
-        comptes=new HashSet<Compte>();
+
 
     }
 
@@ -52,7 +55,6 @@ public class Client implements Serializable {
      * @param adresse
      */
     public Client(String nom, String prenom, LocalDate dateNaissance, Adresse adresse,Banque banque) {
-        comptes=new HashSet<Compte>();
 
         this.nom = nom;
         this.prenom = prenom;

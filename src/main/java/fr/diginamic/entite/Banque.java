@@ -20,11 +20,15 @@ public class Banque implements Serializable {
     @OneToMany (mappedBy = "banque")
     private Set<Client> clients;
 
+    {
+        this.clients =new HashSet<Client>();
+    }
+
     /**
      * constructeur vide
      */
     public Banque(){
-    this.clients =new HashSet<Client>();
+
     }
 
 
@@ -33,7 +37,6 @@ public class Banque implements Serializable {
      * @param nom
      */
     public Banque(String nom) {
-        this.clients =new HashSet<Client>();
         this.nom = nom;
     }
 
