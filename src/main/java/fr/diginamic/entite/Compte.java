@@ -66,12 +66,7 @@ public abstract class  Compte implements Serializable {
      * @param operation
      */
     public void addOperation(Operation operation){
-        this.operations.add(operation);
-        if (operation.getCompte()==null ) {
-            operation.setCompte(this);
-        } else if (!operation.getCompte().equals(this)) {
-            operation.setCompte(this);
-        }
+        operation.setCompte(this);
     }
 
     /**
@@ -82,6 +77,16 @@ public abstract class  Compte implements Serializable {
 
     public Set<Client> getClients() {
         return clients;
+    }
+
+    /**
+     * Getter
+     *
+     * @return operations
+     */
+
+    public Set<Operation> getOperations() {
+        return operations;
     }
 
     /**

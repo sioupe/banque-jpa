@@ -64,7 +64,13 @@ public abstract class Operation implements Serializable {
 
 
     public void setCompte(Compte compte) {
+        if (this.compte != null) {
+            this.compte.getOperations().remove(this);
+        }
         this.compte = compte;
+        if (this.compte != null) {
+            this.compte.getOperations().add(this);
+        }
     }
 
     /**
