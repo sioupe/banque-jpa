@@ -65,6 +65,19 @@ public class Client {
      */
     public void addCompte(Compte compte){
         comptes.add(compte);
+        if (!compte.getClients().contains(this)){
+            compte.addClient(this);
+        }
+    }
+
+    /**
+     * Getter
+     *
+     * @return comptes
+     */
+
+    public Set<Compte> getComptes() {
+        return comptes;
     }
 
     /**

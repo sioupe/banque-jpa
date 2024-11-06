@@ -1,8 +1,6 @@
 package fr.diginamic;
 
-import fr.diginamic.entite.Adresse;
-import fr.diginamic.entite.Banque;
-import fr.diginamic.entite.Client;
+import fr.diginamic.entite.*;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -24,10 +22,18 @@ public class Main {
         Client client2 = new Client("franck","bouh", LocalDate.of(1995, 5, 1),new Adresse(4,"avenue Jacquue",34740,"Castelanau-le-lez"));
 
         Banque banque2 = new Banque("Caisse d'epargne");
+
+        LivretA livretA =new LivretA("24",200.24,0.74);
+        AssuranceVie assuranceVie=new AssuranceVie("24",200.24,LocalDate.of(2050,8,23),2);
+
+
         banque.addClient(client1);
         banque.addClient(client2);
+        livretA.addClient(client1);
+        assuranceVie.addClient(client1);
+        client2.addCompte(assuranceVie);
+        client2.addCompte(livretA);
         em.persist(banque);
-
         em.persist(client1);
         em.persist(client2);
         em.persist(banque2);

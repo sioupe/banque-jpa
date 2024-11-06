@@ -46,7 +46,6 @@ public class Banque {
 
     public void addClient(Client client) {
         this.clients.add(client);
-        System.out.println(client.getBanque()!=null && !client.getBanque().equals(this));
 
         if (client.getBanque()==null ) {
             client.setBanque(this);

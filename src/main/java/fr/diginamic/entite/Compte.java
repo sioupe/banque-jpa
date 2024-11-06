@@ -41,6 +41,22 @@ public abstract class  Compte {
 
     }
 
+    public void addClient(Client client){
+        this.clients.add(client);
+        if (!client.getComptes().contains(this)) {
+            client.addCompte(this);
+        }
+    }
+
+    /**
+     * Getter
+     *
+     * @return clients
+     */
+
+    public Set<Client> getClients() {
+        return clients;
+    }
 
     @Override
     public String toString() {
