@@ -79,7 +79,7 @@ public class Client {
     /**
      * Getter
      *
-     * @return banques
+     * @return banque
      */
 
     public Banque getBanque() {
@@ -87,7 +87,7 @@ public class Client {
     }
 
     /**
-     * affichage de tout sauf les listes
+     * affichage de tout sauf les listes et banque
      * @return
      */
     @Override

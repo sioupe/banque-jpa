@@ -66,7 +66,7 @@ public class Banque {
     }
 
     /**
-     * affichage de tout sauf des listes
+     * affichage de tout sauf des clients associé
      * @return
      */
     @Override
@@ -80,6 +80,11 @@ public class Banque {
         return sb.toString();
     }
 
+    /**
+     * definition du equals
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -87,8 +92,4 @@ public class Banque {
         return Objects.equals(id, banque.id) && Objects.equals(nom, banque.nom) && Objects.equals(clients, banque.clients);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, nom, clients);
-    }
 }
