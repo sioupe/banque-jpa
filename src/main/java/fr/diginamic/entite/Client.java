@@ -29,7 +29,7 @@ public class Client implements Serializable {
     @JoinColumn(name = "BANQUE_ID")
     private Banque banque;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name = "possede",
             joinColumns = @JoinColumn(name = "ID_CLIENT", referencedColumnName = "ID"),
             inverseJoinColumns = @JoinColumn(name = "ID_COMPTES", referencedColumnName = "ID")

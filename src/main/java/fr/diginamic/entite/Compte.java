@@ -24,7 +24,7 @@ public abstract class  Compte implements Serializable {
     @ManyToMany(mappedBy = "comptes")
     private Set<Client> clients;
 
-    @OneToMany(mappedBy = "compte")
+    @OneToMany(mappedBy = "compte",cascade = CascadeType.PERSIST)
     private Set<Operation> operations;
     {
         operations=new HashSet<Operation>();

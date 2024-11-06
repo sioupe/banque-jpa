@@ -35,12 +35,8 @@ public class Main {
         client2.addCompte(assuranceVie);
         client2.addCompte(livretA);
 
-        em.persist(virement);
-        em.persist(assuranceVie);
-        em.persist(livretA);
+
         em.persist(banque);
-        em.persist(client1);
-        em.persist(client2);
         em.persist(banque2);
 
         em.getTransaction().commit();
