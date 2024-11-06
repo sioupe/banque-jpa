@@ -59,6 +59,11 @@ public abstract class  Compte {
             client.addCompte(this);
         }
     }
+
+    /**
+     * rajout d'une operation dans le compte
+     * @param operation
+     */
     public void addOperation(Operation operation){
         this.operations.add(operation);
         if (operation.getCompte()==null ) {
@@ -91,6 +96,11 @@ public abstract class  Compte {
         return sb.toString();
     }
 
+    /**
+     * definition du equals
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
