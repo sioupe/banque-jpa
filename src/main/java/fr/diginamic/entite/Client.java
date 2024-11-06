@@ -45,19 +45,21 @@ public class Client implements Serializable {
     }
 
     /**
-     * constructeur paramétré sans compte ou banque associer
+     * constructeur paramétré sans compte associer
      * @param nom
      * @param prenom
      * @param dateNaissance
      * @param adresse
      */
-    public Client(String nom, String prenom, LocalDate dateNaissance, Adresse adresse) {
+    public Client(String nom, String prenom, LocalDate dateNaissance, Adresse adresse,Banque banque) {
         comptes=new HashSet<Compte>();
 
         this.nom = nom;
         this.prenom = prenom;
         this.dateNaissance = dateNaissance;
         this.adresse = adresse;
+        this.banque=banque;
+        banque.addClient(this);
     }
 
     /**

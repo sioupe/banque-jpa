@@ -17,20 +17,19 @@ public class Main {
         em.getTransaction().begin();
         System.out.println(em);
         Banque banque = new Banque("Credit agricole");
-
-
-        Client client1 = new Client("Jean","Jacques", LocalDate.of(1820, 5, 1),new Adresse(4,"avenue Goldman",34130,"Mauguio"));
-        Client client2 = new Client("franck","bouh", LocalDate.of(1995, 5, 1),new Adresse(4,"avenue Jacquue",34740,"Castelanau-le-lez"));
-
         Banque banque2 = new Banque("Caisse d'epargne");
+
+        Client client1 = new Client("Jean","Jacques", LocalDate.of(1820, 5, 1),new Adresse(4,"avenue Goldman",34130,"Mauguio"),banque);
+        Client client2 = new Client("franck","bouh", LocalDate.of(1995, 5, 1),new Adresse(4,"avenue Jacquue",34740,"Castelanau-le-lez"),banque);
+
+
 
         LivretA livretA =new LivretA("24",200.24,0.74);
         AssuranceVie assuranceVie=new AssuranceVie("24",200.24,LocalDate.of(2050,8,23),2);
         Virement virement=new Virement(LocalDateTime.of(2024,11,6,11,40),"loyer",746.52,"proprietaire",livretA);
 
 
-        banque.addClient(client1);
-        banque.addClient(client2);
+
         livretA.addClient(client1);
         assuranceVie.addClient(client1);
         client2.addCompte(assuranceVie);
