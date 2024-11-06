@@ -1,12 +1,11 @@
 package fr.diginamic.entite;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
 @Entity
+@DiscriminatorValue("virement")
 public class Virement extends Operation{
     @Column (name = "BENEFICIAIRE")
     private String beneficiaire;

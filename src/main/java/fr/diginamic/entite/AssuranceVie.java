@@ -7,6 +7,7 @@ import jakarta.persistence.Table;
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "assurance_vie")
 public class AssuranceVie extends Compte{
     @Column(name = "date_fin")
     private LocalDate dateFin;

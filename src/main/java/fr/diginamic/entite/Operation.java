@@ -8,6 +8,8 @@ import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "TYPE")
 @Table(name = "operation")
 public abstract class Operation implements Serializable {
     @Id
