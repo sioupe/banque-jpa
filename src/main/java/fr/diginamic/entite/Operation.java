@@ -24,15 +24,53 @@ public abstract class Operation {
     @JoinColumn(name = "COMPTE_ID")
     private Compte compte;
 
+    /**
+     * constructeur vide
+     */
     public Operation(){
 
     }
-    public Operation(LocalDateTime date, String motif, double montant) {
+
+    /**
+     * constructeur parametre avec compte pour le 1 to many
+     * @param date
+     * @param motif
+     * @param montant
+     * @param compte
+     */
+    public Operation(LocalDateTime date, String motif, double montant,Compte compte) {
         this.date = date;
         this.motif = motif;
         this.montant = montant;
+        this.compte = compte;
+        compte.addOperation(this);
     }
 
+    /**
+     * Getter
+     *
+     * @return compte
+     */
+
+    public Compte getCompte() {
+        return compte;
+    }
+
+    /**
+     * Setter
+     *
+     * @param compte compte
+     */
+
+
+    public void setCompte(Compte compte) {
+        this.compte = compte;
+    }
+
+    /**
+     * affichage de tout sauf des listes et du compte
+     * @return
+     */
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder(" ");
@@ -40,7 +78,7 @@ public abstract class Operation {
         sb.append(", date= ").append(date);
         sb.append(", montant= ").append(montant);
         sb.append(", motif= '").append(motif).append('\'');
-        sb.append(", compte= ").append(compte);
+
         sb.append('}');
         return sb.toString();
     }

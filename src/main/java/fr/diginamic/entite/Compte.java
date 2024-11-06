@@ -3,6 +3,7 @@ package fr.diginamic.entite;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -58,6 +59,14 @@ public abstract class  Compte {
             client.addCompte(this);
         }
     }
+    public void addOperation(Operation operation){
+        this.operations.add(operation);
+        if (operation.getCompte()==null ) {
+            operation.setCompte(this);
+        } else if (!operation.getCompte().equals(this)) {
+            operation.setCompte(this);
+        }
+    }
 
     /**
      * Getter
@@ -81,4 +90,12 @@ public abstract class  Compte {
         sb.append(", solde= ").append(solde);
         return sb.toString();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Compte compte)) return false;
+        return Double.compare(solde, compte.solde) == 0 && Objects.equals(id, compte.id) && Objects.equals(numero, compte.numero) && Objects.equals(clients, compte.clients) && Objects.equals(operations, compte.operations);
+    }
+
 }

@@ -6,6 +6,7 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -25,6 +26,7 @@ public class Main {
 
         LivretA livretA =new LivretA("24",200.24,0.74);
         AssuranceVie assuranceVie=new AssuranceVie("24",200.24,LocalDate.of(2050,8,23),2);
+        Virement virement=new Virement(LocalDateTime.of(2024,11,6,11,40),"loyer",746.52,"proprietaire",livretA);
 
 
         banque.addClient(client1);
@@ -34,6 +36,7 @@ public class Main {
         client2.addCompte(assuranceVie);
         client2.addCompte(livretA);
 
+        em.persist(virement);
         em.persist(assuranceVie);
         em.persist(livretA);
         em.persist(banque);

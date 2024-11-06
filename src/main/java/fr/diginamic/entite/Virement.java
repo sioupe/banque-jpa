@@ -14,8 +14,8 @@ public class Virement extends Operation{
     public Virement() {
     }
 
-    public Virement(LocalDateTime date, String motif, double montant, String beneficiaire) {
-        super(date, motif, montant);
+    public Virement(LocalDateTime date, String motif, double montant, String beneficiaire,Compte compte) {
+        super(date, motif, montant,compte);
         this.beneficiaire = beneficiaire;
     }
 
