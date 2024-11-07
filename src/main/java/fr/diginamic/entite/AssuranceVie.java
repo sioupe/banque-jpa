@@ -9,9 +9,9 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "assurance_vie")
 public class AssuranceVie extends Compte{
-    @Column(name = "date_fin")
+    @Column(name = "DATE_FIN")
     private LocalDate dateFin;
-    @Column(name = "taux")
+    @Column(name = "TAUX")
     private double taux;
 
     /**
@@ -20,6 +20,8 @@ public class AssuranceVie extends Compte{
     public AssuranceVie() {
         super();
     }
+
+
 
     /**
      * constructeur parametre
